@@ -2,8 +2,13 @@ import numpy as np
 import re
 import json
 import random
+import os
 
-with open('embeddings.json', 'r') as f:
+C_PATH = os.path.dirname(__file__)
+F_PATHone = os.path.join(C_PATH, 'embeddings.json')
+F_PATHtwo = os.path.join(C_PATH, 'data_training.json')
+
+with open(F_PATHone, 'r') as f:
     embeddings = json.load(f)
 def softmax(x):
     """Compute softmax values for each sets of scores in x."""
@@ -27,7 +32,7 @@ def get_emb(sentence):
 
     return flat_one_hot
 
-with open('data_training.json') as file:
+with open(F_PATHtwo) as file:
     data = json.load(file)
 patt = []
 res = []
